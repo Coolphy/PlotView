@@ -32,8 +32,12 @@ function [xdata,ydata]=getdata(filename,headlines)
     opts.ExtraColumnsRule = "ignore";
     opts.EmptyLineRule = "read";
     opts.ConsecutiveDelimitersRule = "join";
-    data = readtable(filename,opts);
-    xdata=table2array(data(:,xcol));
-    ydata=table2array(data(:,ycol));
+    
+    data = readmatrix(filename,opts);
+    xdata = data(:,xcol);
+    ydata = data(:,ycol);
+%     data = readtable(filename,opts);
+%     xdata=table2array(data(:,xcol));
+%     ydata=table2array(data(:,ycol));
 end
 

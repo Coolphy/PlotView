@@ -44,7 +44,8 @@ classdef plotview_exported < matlab.apps.AppBase
             ycol = app.YEditField.Value;
             [fileinfo,xdata,ydata] = lineplot(filelist);
             app.INFOTextArea.Value = fileinfo;
-            plot(app.UIAxes,xdata,ydata);        
+            plot(app.UIAxes,xdata,ydata,'DisplayName',filelist);
+            legend(app.UIAxes,'Interpreter','none');
         end
 
         % Value changed function: CompareCheckBox
